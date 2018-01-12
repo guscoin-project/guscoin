@@ -90,19 +90,24 @@ unsigned int CalculateNextWorkRequired(const CBlockIndex* pindexLast, int64_t nF
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits, const Consensus::Params& params)
 {
+	LogPrintf("hash: %s\n", hash.ToString().c_str());
+	LogPrintf("nBits: %d\n", nBits);
     bool fNegative;
     bool fOverflow;
     arith_uint256 bnTarget;
 
     bnTarget.SetCompact(nBits, &fNegative, &fOverflow);
 
+	LogPrintf("bnTarget: %s\n", bnTarget.ToString().c_str());
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > UintToArith256(params.powLimit))
         return false;
 
+	LogPrintf("UintToArith256(params.powLimit): %s\n", UintToArith256(params.powLimit).ToString().c_str());
+	LogPrintf("UintToArith256(hash): %s\n", UintToArith256(hash).ToString().c_str());
     // Check proof of work matches claimed amount
     if (UintToArith256(hash) > bnTarget)
         return false;
-
+	LogPrintf("it aint false\n");
     return true;
 }

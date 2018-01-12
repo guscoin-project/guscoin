@@ -999,7 +999,14 @@ bool ReadBlockFromDisk(CBlock& block, const CDiskBlockPos& pos, const Consensus:
     catch (const std::exception& e) {
         return error("%s: Deserialize or I/O error - %s at %s", __func__, e.what(), pos.ToString());
     }
+	LogPrintf("read blockHash: %s\n", block.GetHash().ToString().c_str());
+	LogPrintf("read nbits: %d\n", block.nBits);
+	LogPrintf("read nonce: %d\n", block.nNonce);
 
+
+	LogPrintf("block.tostring(): %s\n", block.ToString().c_str());
+
+	
     // Check the header
     if (!CheckProofOfWork(block.GetPoWHash(), block.nBits, consensusParams))
         return error("ReadBlockFromDisk: Errors in block header at %s", pos.ToString());
