@@ -250,9 +250,9 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("testnet-seed.guscointools.com", true);
-        vSeeds.emplace_back("seed-b.guscoin.loshan.co.uk", true);
-        vSeeds.emplace_back("dnsseed-testnet.thrasher.io", true);
+        //vSeeds.emplace_back("testnet-seed.guscointools.com", true);
+        //vSeeds.emplace_back("seed-b.guscoin.loshan.co.uk", true);
+        //vSeeds.emplace_back("dnsseed-testnet.thrasher.io", true);
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
@@ -270,14 +270,17 @@ public:
         checkpointData = (CCheckpointData) {
             {
                 {0, uint256S("0x9129d5e2e95570efcc7404d55f925539eee5ad1c8083fffeb8b5c9e30d7708b0")},
+                {1, uint256S("0xe1c6a1c5ff34249b3cd4b13a5ee35a84b2d1828b8fff2fc075a3bf3e5ddaaec5")},
+                {2, uint256S("0xaa1a3823d5892303dffb3086427707d06b675b8b1eddc33d8418f1af4ee4c8dd")},
+                {3, uint256S("0xe6cf6ca4ee197fa3553299ee6fc1f14c2f233c836d953741756b8b6aa6ca38de")},
             }
         };
 
 		chainTxData = ChainTxData{
 			// Data as of block db42d00d824950a125f9b08b6b6c282c484781562fa8b3bd29d6ce4a2627c348 (height 1259851).
-			1515315613, // * UNIX timestamp of last known number of transactions
-			1,//11428845,  // * total number of transactions between genesis and that timestamp
-			 28 //   (the tx=... number in the SetBestChain debug.log lines)
+			1515989671, // * UNIX timestamp of last known number of transactions
+			4,//11428845,  // * total number of transactions between genesis and that timestamp
+			 1000 //   (the tx=... number in the SetBestChain debug.log lines)
 			  //0.06     // * estimated number of transactions per second after that timestamp
 		};
 
