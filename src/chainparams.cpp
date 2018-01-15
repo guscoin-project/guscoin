@@ -157,8 +157,8 @@ public:
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
-		vFixedSeeds.clear();
-		vSeeds.clear();
+		//vFixedSeeds.clear();
+		//vSeeds.clear();
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
